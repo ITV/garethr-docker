@@ -158,6 +158,10 @@ class docker::params {
         $service_provider           = 'systemd'
         $service_config_template    = 'docker/etc/sysconfig/docker.systemd.erb'
         $service_overrides_template = 'docker/etc/systemd/system/docker.service.d/service-overrides-rhel.conf.erb'
+      } elsif $::operatingsystem == 'CentOS' {
+        $service_provider           = 'systemd'
+        $service_config_template    = 'docker/etc/sysconfig/docker.erb'
+        $service_overrides_template = 'docker/etc/systemd/system/docker.service.d/service-overrides-rhel.conf.erb'
       } else {
         $service_config_template    = 'docker/etc/sysconfig/docker.erb'
         $service_provider           = undef
